@@ -25,6 +25,11 @@ namespace lab12
             InitializeComponent();
         }
 
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
         public void test()
         {
 
