@@ -27,7 +27,7 @@ namespace lab12
 
         public void test()
         {
-
+            q
         }
     }
 }
