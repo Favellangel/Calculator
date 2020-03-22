@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:lab12"
         mc:Ignorable="d"
         Title="Calculator" Height="450" Width="300" WindowStartupLocation="CenterScreen" Background="Black">
+    <Window.Resources>
+        <SolidColorBrush Color="Black" x:Key="buttonBackColor"/>
+        <SolidColorBrush Color="Gray" x:Key="buttonNumBackColor"/>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -18,9 +25,9 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="63*"/>
             <ColumnDefinition Width="66*" />
             <ColumnDefinition Width="65*" />
@@ -28,40 +35,40 @@
             <ColumnDefinition Width="65*" />
             <ColumnDefinition Width="65*" />
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="7" />
-        <Button Name="BtnHEX" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="1" Foreground="White" Background="#00000000">HEX</Button>
-        <Button Name="BtnDEC" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="2" Foreground="White" Background="#00000000">DEC</Button>
-        <Button Name="BtnOCT" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="3" Foreground="White" Background="#00000000">OCT</Button>
-        <Button Name="BtnBIN" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="4" Foreground="White" Background="#00000000">BIN</Button>
-        <Button Grid.Column="0" Grid.Row="5"  Foreground="White" Background="#FF474343" Grid.ColumnSpan="2"/>
-        <Button Grid.Column="2" Grid.Row="5" Foreground="White" Background="#FF474343">Mod</Button>
-        <Button Grid.Column="3" Grid.Row="5" Foreground="White" Background="#FF474343">CE</Button>
-        <Button Grid.Column="4" Grid.Row="5" Foreground="White" Background="#FF474343">C</Button>
-        <Button Grid.Column="5" Grid.Row="5" Foreground="White" Background="#FF474343">del</Button>
-        <Button Grid.Column="6" Grid.Row="5" Foreground="White" Background="#FF474343">/</Button>
-        <Button Name="BtnA" Grid.Column="0" Grid.Row="6" Foreground="White" Background="#FF474343" Grid.ColumnSpan="2">A</Button>
-        <Button Name="BtnB" Grid.Column="2" Grid.Row="6" Foreground="White" Background="#FF474343">B</Button>
-        <Button Name="BtnNum7" Grid.Column="3" Grid.Row="6" Foreground="White" Background="#FF474343">7</Button>
-        <Button Name="BtnNum8" Grid.Column="4" Grid.Row="6" Foreground="White" Background="#FF474343">8</Button>
-        <Button Name="BtnNum9" Grid.Column="5" Grid.Row="6" Foreground="White" Background="#FF474343">9</Button>
-        <Button Grid.Column="6" Grid.Row="6" Foreground="White" Background="#FF474343">*</Button>
-        <Button Name="BtnC" Grid.Column="0" Grid.Row="7" Foreground="White" Background="#FF474343" Grid.ColumnSpan="2">C</Button>
-        <Button Name="BtnD" Grid.Column="2" Grid.Row="7" Foreground="White" Background="#FF474343">D</Button>
-        <Button Name="BtnNum4" Grid.Column="3" Grid.Row="7" Foreground="White" Background="#FF474343">4</Button>
-        <Button Name="BtnNum5" Grid.Column="4" Grid.Row="7" Foreground="White" Background="#FF474343">5</Button>
-        <Button Name="BtnNum6" Grid.Column="5" Grid.Row="7" Foreground="White" Background="#FF474343">6</Button>
-        <Button Grid.Column="6" Grid.Row="7" Foreground="White" Background="#FF474343">-</Button>
-        <Button Name="BtnE" Grid.Column="0" Grid.Row="8" Foreground="White" Background="#FF474343" Grid.ColumnSpan="2">E</Button>
-        <Button Name="BtnF" Grid.Column="2" Grid.Row="8" Foreground="White" Background="#FF474343">F</Button>
-        <Button Name="BtnNum1" Grid.Column="3" Grid.Row="8" Foreground="White" Background="#FF474343">1</Button>
-        <Button Name="BtnNum2" Grid.Column="4" Grid.Row="8" Foreground="White" Background="#FF474343">2</Button>
-        <Button Name="BtnNum3" Grid.Column="5" Grid.Row="8" Foreground="White" Background="#FF474343">3</Button>
-        <Button Grid.Column="6" Grid.Row="8" Foreground="White" Background="#FF474343">+</Button>
-        <Button Grid.Column="0" Grid.Row="9" Foreground="White" Background="#FF474343" Grid.ColumnSpan="2">(</Button>
-        <Button Grid.Column="2" Grid.Row="9" Foreground="White" Background="#FF474343">)</Button>
-        <Button Grid.Column="3" Grid.Row="9" Foreground="White" Background="#FF474343">+-</Button>
-        <Button Grid.Column="4" Grid.Row="9" Foreground="White" Background="#FF474343">0</Button>
-        <Button Grid.Column="5" Grid.Row="9" Foreground="White" Background="#FF474343">.</Button>
-        <Button Grid.Column="6" Grid.Row="9" Foreground="White" Background="#FF474343">=</Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Grid.Column="1" Grid.ColumnSpan="7" />
+        <Button Name="BtnHEX" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="2" Background="{StaticResource buttonBackColor}" Content="HEX"/>
+        <Button Name="BtnDEC" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="3" Background="{StaticResource buttonBackColor}" Content="DEC"/>
+        <Button Name="BtnOCT" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="4" Background="{StaticResource buttonBackColor}" Content="OCT"/>
+        <Button Name="BtnBIN" HorizontalContentAlignment="Left" Grid.ColumnSpan="7" Grid.Row="5" Background="{StaticResource buttonBackColor}" Content="BIN"/>
+        <Button Grid.Column="0" Grid.Row="6" Background="{StaticResource buttonNumBackColor}"/>
+        <Button Grid.Column="1" Grid.Row="6" Background="{StaticResource buttonNumBackColor}" Content="Mod"/>
+        <Button Grid.Column="2" Grid.Row="6" Background="{StaticResource buttonNumBackColor}" Content="CE"/>
+        <Button Grid.Column="3" Grid.Row="6" Background="{StaticResource buttonNumBackColor}" Content="C"/>
+        <Button Grid.Column="4" Grid.Row="6" Background="{StaticResource buttonNumBackColor}" Content="del"/>
+        <Button Grid.Column="5" Grid.Row="6" Background="{StaticResource buttonNumBackColor}" Content="/"/>
+        <Button Name="BtnA" Grid.Column="0" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="A"/>
+        <Button Name="BtnB" Grid.Column="1" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="B"/>
+        <Button Name="BtnNum7" Grid.Column="2" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="7"/>
+        <Button Name="BtnNum8" Grid.Column="3" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="8"/>
+        <Button Name="BtnNum9" Grid.Column="4" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="9"/>
+        <Button Grid.Column="5" Grid.Row="7" Background="{StaticResource buttonNumBackColor}" Content="*"/>
+        <Button Name="BtnC" Grid.Column="0" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="C"/>
+        <Button Name="BtnD" Grid.Column="1" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="D"/>
+        <Button Name="BtnNum4" Grid.Column="2" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="4"/>
+        <Button Name="BtnNum5" Grid.Column="3" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="5"/>
+        <Button Name="BtnNum6" Grid.Column="4" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="6"/>
+        <Button Grid.Column="5" Grid.Row="8" Background="{StaticResource buttonNumBackColor}" Content="-"/>
+        <Button Name="BtnE" Grid.Column="0" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="E"/>
+        <Button Name="BtnF" Grid.Column="1" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="F"/>
+        <Button Name="BtnNum1" Grid.Column="2" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="1"/>
+        <Button Name="BtnNum2" Grid.Column="3" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="2"/>
+        <Button Name="BtnNum3" Grid.Column="4" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="3"/>
+        <Button Grid.Column="5" Grid.Row="9" Background="{StaticResource buttonNumBackColor}" Content="+"/>
+        <Button Grid.Column="0" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content="("/>
+        <Button Grid.Column="1" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content=")"/>
+        <Button Grid.Column="2" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content="+-"/>
+        <Button Grid.Column="3" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content="0"/>
+        <Button Grid.Column="4" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content="."/>
+        <Button Grid.Column="5" Grid.Row="10" Background="{StaticResource buttonNumBackColor}" Content="="/>
     </Grid>
 </Window>
