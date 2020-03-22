@@ -25,14 +25,15 @@ namespace lab12
             InitializeComponent();
         }
 
-        /*public MainWindow()
-        {
-            InitializeComponent();
-        }*/
 
         public void test()
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            textBlock.Text = "0";
         }
     }
 }
