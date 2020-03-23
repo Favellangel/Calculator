@@ -32,10 +32,10 @@ namespace lab12
             switch (clickedButton.Name)
             {
                 case "BtnHEX":
-                    MessageBox.Show("Click on button BtnHEX");
+                 
                     break;
                 case "BtnDEC":
-                    MessageBox.Show("Click on button BtnDEC");
+              
                     break;
                 default:
                     break;
@@ -47,8 +47,69 @@ namespace lab12
             switch (clickedButton.Name)
             {
                 case "BtnNum1":
-                    MessageBox.Show("Click on button BtnNum1");
+                    textBlock.Text += "1";
                     break;
+
+                case "BtnNum2":
+                    textBlock.Text += "2";
+                    break;
+
+                case "BtnNum3":
+                    textBlock.Text += "3";
+                    break;
+
+                case "BtnNum4":
+                    textBlock.Text += "4";
+                    break;
+
+                case "BtnNum5":
+                    textBlock.Text += "5";
+                    break;
+
+                case "BtnNum6":
+                    textBlock.Text += "6";
+                    break;
+
+                case "BtnNum7":
+                    textBlock.Text += "7";
+                    break;
+
+                case "BtnNum8":
+                    textBlock.Text += "8";
+                    break;
+
+                case "BtnNum9":
+                    textBlock.Text += "9";
+                    break;
+
+                case "BtnNum0":
+                    textBlock.Text += "0";
+                    break;
+
+                case "BtnA":
+                    textBlock.Text += "A";
+                    break;
+
+                case "BtnB":
+                    textBlock.Text += "B";
+                    break;
+
+                case "BtnC":
+                    textBlock.Text += "C";
+                    break;
+
+                case "BtnD":
+                    textBlock.Text += "D";
+                    break;
+
+                case "BtnE":
+                    textBlock.Text += "E";
+                    break;
+
+                case "BtnF":
+                    textBlock.Text += "F";
+                    break;
+
                 default:
                     break;
             }
