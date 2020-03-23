@@ -25,9 +25,6 @@ namespace lab12
             InitializeComponent();
         }
 
-        public void test()
-        {
-            q
-        }
+
     }
 }
