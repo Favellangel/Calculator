@@ -26,5 +26,32 @@ namespace lab12
         }
 
 
+        private void Button_ClickSys(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = (Button)sender;
+            switch (clickedButton.Name)
+            {
+                case "BtnHEX":
+                    MessageBox.Show("Click on button BtnHEX");
+                    break;
+                case "BtnDEC":
+                    MessageBox.Show("Click on button BtnDEC");
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void Button_ClickNum(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = (Button)sender;
+            switch (clickedButton.Name)
+            {
+                case "BtnNum1":
+                    MessageBox.Show("Click on button BtnNum1");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
