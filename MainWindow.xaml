@@ -14,17 +14,13 @@
             <Setter Property="Grid.MinWidth" Value="300"/>
             <Setter Property="Grid.ColumnSpan" Value="7"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <EventSetter Event="Button.Click" Handler="Button_ClickSys" />
-            <Style.Triggers>
-                <Trigger Property="Button.IsPressed" Value="true">
-                    <Setter Property="Background" Value="Red"/>
-                </Trigger>
-            </Style.Triggers>
+            <EventSetter Event="Button.Click" Handler="Button_ClickSys"/>
         </Style>
         <Style x:Key="BtnNumStyle" TargetType="Button">
             <Setter Property="TextBlock.Foreground" Value="White"/>
             <Setter Property="Grid.Background" Value="DarkSlateGray"/>
             <Setter Property="FontFamily" Value="18"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <EventSetter Event="Button.Click" Handler="Button_ClickNum"/>
         </Style>
     </Window.Resources>
@@ -57,9 +53,9 @@
         <Button Name="BtnBIN" Style="{StaticResource BtnSysNumStyle}" Grid.Row="5" Content="BIN"/>
         <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource BtnNumStyle}"/>
         <Button Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="6" Content="Mod"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="6" Content="CE"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="6" Content="C"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="6" Content="del"/>
+        <Button Name="BtnClearLine" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="6" Content="CE"/>
+        <Button Name="BtnClear" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="6" Content="C"/>
+        <Button Name="BtnDelchar" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="6" Content="del"/>
         <Button Style="{StaticResource BtnNumStyle}" Grid.Column="5" Grid.Row="6" Content="/"/>
         <Button Name="BtnA" Style="{StaticResource BtnNumStyle}" Grid.Column="0" Grid.Row="7" Content="A"/>
         <Button Name="BtnB" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="7" Content="B"/>
