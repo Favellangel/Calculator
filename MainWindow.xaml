@@ -7,16 +7,20 @@
         mc:Ignorable="d"
         Title="Calculator" Height="450" Width="300" WindowStartupLocation="CenterScreen" Background="Black">
     <Window.Resources>
-        <Style x:Key="BtnSysNumStyle">
+        <Style x:Key="BtnSysNumStyle" TargetType="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="TextBlock.Foreground" Value="White"/>
             <Setter Property="Grid.Background" Value="Black"/>
             <Setter Property="Grid.MinWidth" Value="300"/>
             <Setter Property="Grid.ColumnSpan" Value="7"/>
-            <EventSetter Event="Button.Click" Handler="Button_ClickSys" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <EventSetter Event="Button.Click" Handler="Button_ClickSys"/>
         </Style>
-        <Style x:Key="BtnNumStyle">
+        <Style x:Key="BtnNumStyle" TargetType="Button">
             <Setter Property="TextBlock.Foreground" Value="White"/>
-            <Setter Property="Grid.Background" Value="Gray"/>
+            <Setter Property="Grid.Background" Value="DarkSlateGray"/>
+            <Setter Property="FontFamily" Value="18"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <EventSetter Event="Button.Click" Handler="Button_ClickNum"/>
         </Style>
     </Window.Resources>
@@ -42,16 +46,16 @@
             <ColumnDefinition Width="49*" />
             <ColumnDefinition Width="49*" />
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Grid.Column="6" Foreground="White" />
-        <Button Name="BtnHEX" Style="{StaticResource BtnSysNumStyle}" HorizontalContentAlignment="Left" Grid.Row="2" Content="HEX"/>
-        <Button Name="BtnDEC" Style="{StaticResource BtnSysNumStyle}" HorizontalContentAlignment="Left" Grid.Row="3" Content="DEC"/>
-        <Button Name="BtnOCT" Style="{StaticResource BtnSysNumStyle}" HorizontalContentAlignment="Left" Grid.Row="4" Content="OCT"/>
-        <Button Name="BtnBIN" Style="{StaticResource BtnSysNumStyle}" HorizontalContentAlignment="Left" Grid.Row="5" Content="BIN"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="1" Foreground="White" FontSize="20" Margin="0, 0, 0, 10"/>
+        <Button Name="BtnHEX" Style="{StaticResource BtnSysNumStyle}" Grid.Row="2" Content="HEX"/>
+        <Button Name="BtnDEC" Style="{StaticResource BtnSysNumStyle}" Grid.Row="3" Content="DEC"/>
+        <Button Name="BtnOCT" Style="{StaticResource BtnSysNumStyle}" Grid.Row="4" Content="OCT"/>
+        <Button Name="BtnBIN" Style="{StaticResource BtnSysNumStyle}" Grid.Row="5" Content="BIN"/>
         <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource BtnNumStyle}"/>
         <Button Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="6" Content="Mod"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="6" Content="CE"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="6" Content="C"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="6" Content="del"/>
+        <Button Name="BtnClearLine" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="6" Content="CE"/>
+        <Button Name="BtnClear" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="6" Content="C"/>
+        <Button Name="BtnDelchar" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="6" Content="del"/>
         <Button Style="{StaticResource BtnNumStyle}" Grid.Column="5" Grid.Row="6" Content="/"/>
         <Button Name="BtnA" Style="{StaticResource BtnNumStyle}" Grid.Column="0" Grid.Row="7" Content="A"/>
         <Button Name="BtnB" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="7" Content="B"/>
@@ -74,7 +78,7 @@
         <Button Grid.Column="0" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="("/>
         <Button Grid.Column="1" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content=")"/>
         <Button Grid.Column="2" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="+-"/>
-        <Button Grid.Column="3" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="0"/>
+        <Button Name="BtnNum0"  Grid.Column="3" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="0"/>
         <Button Grid.Column="4" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="."/>
         <Button Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="="/>
     </Grid>
