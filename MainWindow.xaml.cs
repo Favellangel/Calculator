@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace lab12
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,15 +26,27 @@ namespace lab12
 
         private void Button_ClickSys(object sender, RoutedEventArgs e)
         {
+            Calc calc = new Calc();
+
             Button clickedButton = (Button)sender;
             switch (clickedButton.Name)
             {
                 case "BtnHEX":
                  
                     break;
+
+                case "BtnBIN":
+                    textBlock.Text = Convert.ToString(calc.toDec(Convert.ToInt32(textBlock.Text), 2));
+                    break;
+
+                case "BtnOCT":
+
+                    break;
+
                 case "BtnDEC":
               
                     break;
+
                 default:
                     break;
             }
@@ -114,5 +124,7 @@ namespace lab12
                     break;
             }
         }
+
+
     }
 }
