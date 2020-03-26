@@ -78,7 +78,7 @@ namespace lab12
                                 case 'B': res[i] = 11; break;
                                 case 'C': res[i] = 12; break;
                                 case 'D': res[i] = 13; break;
-                                case 'E': res[i] = 14; break;
+                                case 'E': res[i] = 14; break;   //ыафыафыафыаффваыфа
                                 case 'F': res[i] = 15; break;
                                 default:; break;
                             }
