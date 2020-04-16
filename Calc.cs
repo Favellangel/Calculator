@@ -13,6 +13,7 @@ namespace lab12
     {
         public Calc() { }
 
+
         // перевод из десятичной в выбраную систему счисления
         public int decTo(int num, int numSys)
         {
@@ -42,64 +43,63 @@ namespace lab12
         // перевод из десятичной в 16
         public string decTohex(int num)
         {
+            string res = "";
             if (num == 0) return "";
-            decTohex(num / 16);
+            res += decTohex(num / 16);
+
             switch (num % 16)
             {
-                case 10: return "A"; break;
-                case 11: return "B"; break;
-                case 12: return "C"; break;
-                case 13: return "D"; break;
-                case 14: return "E"; break;
-                case 15: return "F"; break;
-                default: return (num % 16).ToString(); break;
+                case 10: res+= "A"; break;
+                case 11: res += "B"; break;
+                case 12: res += "C"; break;
+                case 13: res += "D"; break;
+                case 14: res += "E"; break;
+                case 15: res += "F"; break;
+                default: res += (num % 16).ToString(); break;
             }
+            return res;
         }
 
 
         // перевод из 16 в 10
-        /*public int hexToDec(string num)
+        public int hexToDec(string num)
+        {
+            int hex = 0;
+            int[] res = new int[40];
+            char[] ch = new char[1];
+            int i;
+            for (i = 0; i < (num.Length); i++)
+            {
+                if ((num[i] >= 48) && (num[i] <= 57))
                 {
-                    int hex = 0;
-                    int res[40];
-                    char ch[1];
-                    int i;
-                    for (i = 0; i < (num.size() - 2); i++)
+                    ch[0] = num[i];
+                    res[i] = ch[0] - 48;
+                }
+                else
+                {
+                    switch (num[i])
                     {
-                        if ((num[i] >= 48) && (num[i] <= 57))
-                        {
-                            ch[0] = num[i];
-                            res[i] = atoi(ch);
-                        }
-                        else
-                        {
-                            switch (num[i])
-                            {
-                                case 'A': res[i] = 10; break;
-                                case 'B': res[i] = 11; break;
-                                case 'C': res[i] = 12; break;
-                                case 'D': res[i] = 13; break;
-                                case 'E': res[i] = 14; break;   //ыафыафыафыаффваыфававпавпа
-                                case 'F': res[i] = 15; break;
-                                default:; break;
-                            }
-                        }
-                        //cout « "i:" « i « "\n";
+                        case 'A': res[i] = 10; break;
+                        case 'B': res[i] = 11; break;
+                        case 'C': res[i] = 12; break;
+                        case 'D': res[i] = 13; break;
+                        case 'E': res[i] = 14; break; 
+                        case 'F': res[i] = 15; break;
+                        default:; break;
                     }
-
-                    —i;
-                    //cout « "i:" « i « "\n";
-                    //cout « "\n";
-                    for (int j = 0; i >= 0; i--)
-                    {
-                        //cout « "i:" « i « "\n";
-                        hex += (res[i] * pow(16, j)); // error
-                        ++j;
-                    }
-                    return hex;
                 }
 
-            }*/
+            }
+
+            --i;
+
+            for (int j = 0; i >= 0; i--)
+            {
+                hex += (res[i] * (int)Math.Pow(16, j));
+                ++j;
+            }
+            return hex;
+        }
 
     }
 }
