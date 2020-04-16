@@ -68,12 +68,12 @@ namespace lab12
             int[] res = new int[40];
             char[] ch = new char[1];
             int i;
-            for (i = 0; i < (num.Length - 2); i++)
+            for (i = 0; i < (num.Length); i++)
             {
                 if ((num[i] >= 48) && (num[i] <= 57))
                 {
                     ch[0] = num[i];
-                    res[i] = (int)ch[0]; 
+                    res[i] = ch[0] - 48;
                 }
                 else
                 {
@@ -91,6 +91,7 @@ namespace lab12
 
             }
 
+            --i;
 
             for (int j = 0; i >= 0; i--)
             {

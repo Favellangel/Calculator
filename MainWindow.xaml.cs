@@ -39,7 +39,7 @@ namespace lab12
                     switch(flag)
                     {
                         case 'D':
-                            if (flag == 'B') textBlock.Text = Convert.ToString(calc.decTohex(Convert.ToInt32(textBlock.Text)));
+                            if (flag == 'D') textBlock.Text = Convert.ToString(calc.decTohex(Convert.ToInt32(textBlock.Text)));
                             flag = 'H';
                             break;
 
@@ -110,7 +110,7 @@ namespace lab12
                             break;
 
                         case 'H':
-                            if (flag == 'B')
+                            if (flag == 'H')
                             {
                                 textBlock.Text = Convert.ToString(calc.hexToDec(textBlock.Text));
                                 textBlock.Text = Convert.ToString(calc.decTo(Convert.ToInt32(textBlock.Text), 8));
