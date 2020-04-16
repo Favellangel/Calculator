@@ -20,11 +20,11 @@ namespace lab12
     public partial class MainWindow : Window
     {
         char flag;
-
         public MainWindow()
         {
-            flag = 'D';
             InitializeComponent();
+            flag = 'D';
+            setDisableBtnDEC();
         }
 
         private void BtnTxtColorSelection(Button clickedBtn, Button[] othersBtn)
@@ -36,7 +36,6 @@ namespace lab12
                     othersBtn[i].Foreground = Brushes.White;
             }
         }
-
         private void setDisableBtnforBIN()
         {
             BtnNum2.IsEnabled = false;
@@ -117,7 +116,6 @@ namespace lab12
                 case "BtnHEX":
                     BtnTxtColorSelection(clickedButton, BtnSys);
                     setDisableBtnHEX();
-                    break;
                     switch(flag)
                     {
                         case 'D':
@@ -148,8 +146,6 @@ namespace lab12
                 case "BtnBIN":
                     BtnTxtColorSelection(clickedButton, BtnSys);
                     setDisableBtnforBIN();
-                    textBlock.Text = Convert.ToString(calc.toDec(Convert.ToInt32(textBlock.Text), 2));
-                    break;
                     switch(flag)
                     {
                         case 'D':
