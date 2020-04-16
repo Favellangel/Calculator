@@ -17,12 +17,48 @@
             <EventSetter Event="Button.Click" Handler="Button_ClickSys"/>
         </Style>
         <Style x:Key="BtnNumStyle" TargetType="Button">
-            <Setter Property="TextBlock.Foreground" Value="White"/>
-            <Setter Property="Grid.Background" Value="DarkSlateGray"/>
-            <Setter Property="FontFamily" Value="18"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Resources>
+                <Style x:Key="FocusVisual">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <SolidColorBrush x:Key="Button.Background" Color="DarkSlateGray"/>
+                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                <SolidColorBrush x:Key="Button.Enable.Foreground" Color="White"/>
+            </Style.Resources>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Control.IsMouseOver" Value="True">
+                                <Setter Property="Control.Foreground" Value="Red" />
+                                <Setter Property="Control.FontWeight" Value="Bold" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Background}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Enable.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <EventSetter Event="Button.Click" Handler="Button_ClickNum"/>
         </Style>
+
     </Window.Resources>
     <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
@@ -48,38 +84,38 @@
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="1" Foreground="White" FontSize="20" Margin="0, 0, 0, 10"/>
         <Button Name="BtnHEX" Style="{StaticResource BtnSysNumStyle}" Grid.Row="2" Content="HEX"/>
-        <Button Name="BtnDEC" Style="{StaticResource BtnSysNumStyle}" Grid.Row="3" Content="DEC"/>
+        <Button Name="BtnDEC" Style="{StaticResource BtnSysNumStyle}" Foreground="Aqua" Grid.Row="3" Content="DEC"/>
         <Button Name="BtnOCT" Style="{StaticResource BtnSysNumStyle}" Grid.Row="4" Content="OCT"/>
         <Button Name="BtnBIN" Style="{StaticResource BtnSysNumStyle}" Grid.Row="5" Content="BIN"/>
-        <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource BtnNumStyle}"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="6" Content="Mod"/>
+        <Button Name="BtnTEST" IsEnabled="False" Grid.Column="0" Grid.Row="6" Style="{StaticResource BtnNumStyle }"/>
+        <Button IsEnabled="False" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="6" Content="Mod"/>
         <Button Name="BtnClearLine" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="6" Content="CE"/>
         <Button Name="BtnClear" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="6" Content="C"/>
         <Button Name="BtnDelchar" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="6" Content="del"/>
-        <Button Style="{StaticResource BtnNumStyle}" Grid.Column="5" Grid.Row="6" Content="/"/>
+        <Button Name="BtnDiv" Style="{StaticResource BtnNumStyle}" Grid.Column="5" Grid.Row="6" Content="/"/>
         <Button Name="BtnA" Style="{StaticResource BtnNumStyle}" Grid.Column="0" Grid.Row="7" Content="A"/>
         <Button Name="BtnB" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="7" Content="B"/>
         <Button Name="BtnNum7" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="7" Content="7"/>
         <Button Name="BtnNum8" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="7" Content="8"/>
         <Button Name="BtnNum9" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="7" Content="9"/>
-        <Button Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="7" Content="*"/>
+        <Button Name="BtnMul" Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="7" Content="*"/>
         <Button Name="BtnC" Style="{StaticResource BtnNumStyle}" Grid.Column="0" Grid.Row="8" Content="C"/>
         <Button Name="BtnD" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="8" Content="D"/>
         <Button Name="BtnNum4" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="8" Content="4"/>
         <Button Name="BtnNum5" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="8" Content="5"/>
         <Button Name="BtnNum6" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="8" Content="6"/>
-        <Button Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="8" Content="-"/>
+        <Button Name="BtnSub" Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="8" Content="-"/>
         <Button Name="BtnE" Style="{StaticResource BtnNumStyle}" Grid.Column="0" Grid.Row="9" Content="E"/>
         <Button Name="BtnF" Style="{StaticResource BtnNumStyle}" Grid.Column="1" Grid.Row="9" Content="F"/>
         <Button Name="BtnNum1" Style="{StaticResource BtnNumStyle}" Grid.Column="2" Grid.Row="9" Content="1"/>
         <Button Name="BtnNum2" Style="{StaticResource BtnNumStyle}" Grid.Column="3" Grid.Row="9" Content="2"/>
         <Button Name="BtnNum3" Style="{StaticResource BtnNumStyle}" Grid.Column="4" Grid.Row="9" Content="3"/>
-        <Button Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="9" Content="+"/>
-        <Button Grid.Column="0" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="("/>
-        <Button Grid.Column="1" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content=")"/>
-        <Button Grid.Column="2" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="+-"/>
+        <Button Name="BtnAdd" Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="9" Content="+"/>
+        <Button Name="BtnLeftBracket" Grid.Column="0" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="("/>
+        <Button Name="BtnRigthBracket" Grid.Column="1" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content=")"/>
+        <Button Name="BtnSign" Grid.Column="2" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="+-"/>
         <Button Name="BtnNum0"  Grid.Column="3" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="0"/>
-        <Button Grid.Column="4" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="."/>
-        <Button Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="="/>
+        <Button Name="BtnPoint" Grid.Column="4" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="."/>
+        <Button Name="BtnEqually" Grid.Column="5" Style="{StaticResource BtnNumStyle}" Grid.Row="10" Content="="/>
     </Grid>
 </Window>

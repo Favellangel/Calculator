@@ -23,28 +23,112 @@ namespace lab12
             InitializeComponent();
         }
 
+        private void BtnTxtColorSelection(Button clickedBtn, Button[] othersBtn)
+        {
+            clickedBtn.Foreground = Brushes.Aqua;
+            for (int i = 0; i < othersBtn.Length; i++)
+            {
+                if(othersBtn[i].Name != clickedBtn.Name)
+                    othersBtn[i].Foreground = Brushes.White;
+            }
+        }
+
+        private void setDisableBtnforBIN()
+        {
+            BtnNum2.IsEnabled = false;
+            BtnNum3.IsEnabled = false;
+            BtnNum4.IsEnabled = false;
+            BtnNum5.IsEnabled = false;
+            BtnNum6.IsEnabled = false;
+            BtnNum7.IsEnabled = false;
+            BtnNum8.IsEnabled = false;
+            BtnNum9.IsEnabled = false;
+            BtnA.IsEnabled = false;
+            BtnB.IsEnabled = false;
+            BtnC.IsEnabled = false;
+            BtnD.IsEnabled = false;
+            BtnE.IsEnabled = false;
+            BtnF.IsEnabled = false;
+        }
+        private void setDisableBtnforOCT()
+        {
+            BtnNum2.IsEnabled = true;
+            BtnNum3.IsEnabled = true;
+            BtnNum4.IsEnabled = true;
+            BtnNum5.IsEnabled = true;
+            BtnNum6.IsEnabled = true;
+            BtnNum7.IsEnabled = true;
+            BtnNum8.IsEnabled = false;
+            BtnNum9.IsEnabled = false;
+            BtnA.IsEnabled = false;
+            BtnB.IsEnabled = false;
+            BtnC.IsEnabled = false;
+            BtnD.IsEnabled = false;
+            BtnE.IsEnabled = false;
+            BtnF.IsEnabled = false;
+        }
+        private void setDisableBtnDEC()
+        {
+            BtnNum2.IsEnabled = true;
+            BtnNum3.IsEnabled = true;
+            BtnNum4.IsEnabled = true;
+            BtnNum5.IsEnabled = true;
+            BtnNum6.IsEnabled = true;
+            BtnNum7.IsEnabled = true;
+            BtnNum8.IsEnabled = true;
+            BtnNum9.IsEnabled = true;
+            BtnA.IsEnabled = false;
+            BtnB.IsEnabled = false;
+            BtnC.IsEnabled = false;
+            BtnD.IsEnabled = false;
+            BtnE.IsEnabled = false;
+            BtnF.IsEnabled = false;
+        }
+        private void setDisableBtnHEX()
+        {
+            BtnNum2.IsEnabled = true;
+            BtnNum3.IsEnabled = true;
+            BtnNum4.IsEnabled = true;
+            BtnNum5.IsEnabled = true;
+            BtnNum6.IsEnabled = true;
+            BtnNum7.IsEnabled = true;
+            BtnNum8.IsEnabled = true;
+            BtnNum9.IsEnabled = true;
+            BtnA.IsEnabled = true;
+            BtnB.IsEnabled = true;
+            BtnC.IsEnabled = true;
+            BtnD.IsEnabled = true;
+            BtnE.IsEnabled = true;
+            BtnF.IsEnabled = true;
+        }
 
         private void Button_ClickSys(object sender, RoutedEventArgs e)
         {
             Calc calc = new Calc();
-
+            Button[] BtnSys = { BtnHEX, BtnBIN, BtnOCT, BtnDEC };
             Button clickedButton = (Button)sender;
+
             switch (clickedButton.Name)
             {
                 case "BtnHEX":
-                 
+                    BtnTxtColorSelection(clickedButton, BtnSys);
+                    setDisableBtnHEX();
                     break;
 
                 case "BtnBIN":
+                    BtnTxtColorSelection(clickedButton, BtnSys);
+                    setDisableBtnforBIN();
                     textBlock.Text = Convert.ToString(calc.toDec(Convert.ToInt32(textBlock.Text), 2));
                     break;
 
                 case "BtnOCT":
-
+                    BtnTxtColorSelection(clickedButton, BtnSys);
+                    setDisableBtnforOCT();
                     break;
 
                 case "BtnDEC":
-              
+                    BtnTxtColorSelection(clickedButton, BtnSys);
+                    setDisableBtnDEC();
                     break;
 
                 default:
